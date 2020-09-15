@@ -32,6 +32,7 @@ void toggle::update(){
 }
 
 void toggle::draw(){
+
    ofFill();
    c1--;
    dist = ofDist(xPos, base, ofGetMouseX(), ofGetMouseY());
@@ -61,7 +62,7 @@ void toggle::draw(){
     
     if (value == true){
            ofPushMatrix();
-           ofSetColor(255, 255, 0);
+           ofSetColor(4, 228, 165);
            ofDrawCircle(xPos,base, radiusP);
            ofSetColor(0);
            ofDrawCircle(xPos,base, radiusM);
@@ -74,7 +75,7 @@ void toggle::draw(){
        if (value == false){
            
            ofPushMatrix();
-           ofSetColor(255, 255, 0);
+           ofSetColor(4, 228, 165);
            ofDrawCircle(xPos,base, radiusP);
            ofDrawBitmapString("off", xPos-10, base-20);
            ofPopMatrix();
@@ -87,24 +88,5 @@ void toggle::draw(){
    
    
 
-  
-    //buttons and bars
 
-//    sMap=ofMap(value,0,24,0,100);
-//    ofSetRectMode(OF_RECTMODE_CORNER);
-//    ofSetColor(255, 255, 0);
-//    ofDrawCircle(xPos,base, radiusM);
-//    ofDrawCircle(xPos2,base2, radiusP);
-//    ofDrawRectangle(xPos +30, base+25, 8, -sMap);
-//    ofDrawRectangle(xPos +28,(base+16)-sMap,12,12);
-//
-//    //symbols inside buttons
-//    ofPushMatrix();
-//    ofSetColor(0);
-//    ofDrawBitmapString(value, xPos-5, base-20);
-//    ofSetRectMode(OF_RECTMODE_CENTER);
-//    ofDrawRectangle(xPos, base2, 8, 2);
-//    ofDrawRectangle(xPos, base2, 2, 8);
-//    ofDrawRectangle(xPos, base, 8, 2);
-//    ofPopMatrix();
 }

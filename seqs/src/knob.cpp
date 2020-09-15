@@ -76,7 +76,7 @@ void knob::draw(int xPosIn, int baseIn, int range){
     
    // ofRectMode(OF_RECTMODE_CENTER);
     ofPushMatrix();
-    ofSetColor(255, 255, 0);
+    ofSetColor(4, 228, 165);
     ofDrawCircle(xPos, base, radiusP);
     ofTranslate(xPos, base);
     ofRotateDeg(mP);

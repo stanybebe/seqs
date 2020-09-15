@@ -86,7 +86,7 @@ void Slider::draw(){
 
     sMap=ofMap(value,0,24,0,100);
     ofSetRectMode(OF_RECTMODE_CORNER);
-    ofSetColor(255, 255, 0);
+    ofSetColor(4, 228, 165);
     ofDrawCircle(xPos,base, radiusM);
     ofDrawCircle(xPos2,base2, radiusP);
     ofDrawRectangle(xPos +30, base+25, 8, -sMap);

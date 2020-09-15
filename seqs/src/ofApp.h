@@ -68,7 +68,7 @@ class ofApp : public ofBaseApp, public PdReceiver, public PdMidiReceiver {
         vector<float> array1, array2;
 		
 		int midiChan;
-        float t, val;
+        float t, val, size;
         int c;
         
         ofxMidiOut midiOut;
@@ -84,6 +84,8 @@ class ofApp : public ofBaseApp, public PdReceiver, public PdMidiReceiver {
         knob knobA, knobB;
         xy xyA;
       
+        ofSpherePrimitive sphere, sphereB, sphereC, sphereD, sphereE, sphereF,sphereG, sphereH;
+    
     
 };
 

@@ -18,8 +18,8 @@ void xy::setup(int xPosIn, int baseIn){
     xMax = xPos+120;
     bMax = base+120;
     
-    pX = xPosIn;
-    pY = baseIn;
+    pX = xPosIn + 60;
+    pY = baseIn + 60;
     
 
     
@@ -47,29 +47,10 @@ void xy::draw(int xPosIn, int baseIn){
     if(ofGetMousePressed()==true){
        
         if(ofGetMouseX()>xPos && ofGetMouseX()<xPos+xMax && ofGetMouseY()>base && ofGetMouseY()< base + bMax){
-          //  if(c1<0){
-            
-            
-//            posX= ofMap(ofGetMouseX(), 0, ofGetWidth(), xPos, xMax);
-//            posY= ofMap(ofGetMouseY(), 0, ofGetHeight(), base, bMax);
-            
+
             pX =ofGetMouseX();
             pY =ofGetMouseY();
-       
-//                if (posX <xPos){
-//                    posX =xPos;
-//                }
-//                if (posX >xMax){
-//                    posX =xMax;
-//                }
-//
-//                if (posY <base){
-//                    posY =base;
-//                               }
-//                if (posY >bMax){
-//                    posY =bMax;
-//                }
-//
+
             valueX = floor(ofMap(pX,xPos,xPos+xMax, 0, 1000));
             valueY = floor(ofMap(pY,base,base+bMax, 0, 1000));
             
@@ -77,16 +58,16 @@ void xy::draw(int xPosIn, int baseIn){
             
             cout << "printing"<<endl;
             cout << valueX  << "xpos" <<endl;
-                //c1=10;
+   
            
-            }//}
+            }
     }
     
    
     ofPushMatrix();
     ofFill();
     ofTranslate(xPos, base);
-    ofSetColor(255, 255, 0);
+    ofSetColor(4, 228, 165);
     //ofRectMode(OF_RECTMODE_CORNER);
     ofDrawRectangle(0+(xMax/2), 0+(bMax/2), xMax , bMax );
     

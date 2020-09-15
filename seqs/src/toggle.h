@@ -30,6 +30,7 @@ class toggle : public ofBaseApp {
     double dist;
     int c1;
     toggle();
+   
     
   
     

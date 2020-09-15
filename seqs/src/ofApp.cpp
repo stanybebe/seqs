@@ -24,6 +24,9 @@ void ofApp::setup() {
     xyA.setup(300,40);
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
+    xyA.valueX= 100;
+    xyA.valueY= 100;
+    
 
     c=10;
    
@@ -257,7 +260,10 @@ void ofApp::setup() {
 //--------------------------------------------------------------
 
 void ofApp::update() {
-    ofBackground(100, 100, 100);
+    
+      
+    
+     
      sliderA.update();
      sliderB.update();
      sliderC.update();
@@ -285,9 +291,16 @@ void ofApp::update() {
 //--------------------------------------------------------------
 
 void ofApp::draw() {
+    ofBackground(152, 150, 162);
+    t = t+1;
+    size=2;
     
+  
    
-    
+    ofDrawBitmapString("phase conductor", 30, 250);
+    ofDrawBitmapString("///////////////////////////", 30, 270);
+
+  
     sliderA.draw();
     sliderB.draw();
     sliderC.draw();
@@ -297,14 +310,14 @@ void ofApp::draw() {
     sliderG.draw();
     sliderH.draw();
     
-    xyA.draw(300, 40);
+    xyA.draw(325, 40);
     
     toggleA.draw();
-    toggleA.xPos=300;
+    toggleA.xPos=385;
     toggleA.base=200;
  
-    knobA.draw(40,280,12);
-    knobB.draw(120,280,12);
+    knobA.draw(325,260,12);
+    knobB.draw(450,260,12);
     
     sliderA.xPos = 40;
     sliderA.base = 100;
@@ -366,17 +379,54 @@ void ofApp::draw() {
     else( pd.sendFloat("sup", 0));
 
    
-    
-   
-   
     if ( yep ==true){
     
     midiOut.sendNoteOn(chan,note,vel);
-        
+   
     }
     
-    else (yep==false);
- 
+    else {yep==false;}
+    
+    float newTx = ofMap(xyA.valueX, 0, 1000, 1, 0);
+    float newTy = ofMap(xyA.valueY, 0, 1000, 1, 0);
+    
+    ofPushMatrix();
+    ofTranslate(250,500,0);
+    ofRotateZDeg(newTx*t*20);
+    ofSetColor(4, 228, 165);
+    sphere.setRadius(sliderA.value*2+size);
+    sphereB.setRadius(sliderB.value*2+size);
+    sphere.setPosition(-150, 0, 0);
+    sphereB.setPosition(-50, 0, 0);
+    sphere.draw();
+    sphereB.draw();
+    sphereC.setRadius(sliderC.value*2+size);
+    sphereD.setRadius(sliderD.value*2+size);
+    sphereC.setPosition(50, 0, 0);
+    sphereD.setPosition(150, 0, 0);
+    sphereC.draw();
+    sphereD.draw();
+    ofPopMatrix();
+        
+    ofPushMatrix();
+    ofTranslate(250,500,0);
+    ofRotateYDeg(newTy*t*20);
+    ofSetColor(0);
+    sphereE.setRadius(sliderE.value*2+size);
+    sphereF.setRadius(sliderF.value*2+size);
+    sphereE.setPosition(-150, 0, 0);
+    sphereF.setPosition(-50, 0, 0);
+    sphereE.draw();
+    sphereF.draw();
+    sphereG.setRadius(sliderG.value*2+size);
+    sphereH.setRadius(sliderH.value*2+size);
+    sphereG.setPosition(50, 0, 0);
+    sphereH.setPosition(150, 0, 0);
+    sphereG.draw();
+    sphereH.draw();
+    ofPopMatrix();
+   
+    
 }
 
 //--------------------------------------------------------------
