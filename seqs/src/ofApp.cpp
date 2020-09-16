@@ -1,6 +1,7 @@
 
 #include "ofApp.h"
 #include "ofMath.h"
+#include "ofxMidi.h"
 
 
 
@@ -29,8 +30,8 @@ void ofApp::setup() {
     
 
     c=10;
-   
- 
+    
+
    
     //ofSetLogLevel("Pd", OF_LOG_VERBOSE); // see verbose info inside
 
@@ -284,16 +285,21 @@ void ofApp::update() {
         pd.receiveMessages();
         pd.receiveMidi();
     }
-
+   
     
 }
 
 //--------------------------------------------------------------
 
 void ofApp::draw() {
+   
+
+    
     ofBackground(152, 150, 162);
     t = t+1;
     size=2;
+    
+    cout<< "p" << p;
     
   
    
@@ -344,10 +350,10 @@ void ofApp::draw() {
         cout << array1[i] << " ";
     cout << endl;
     
-    array1[0]=sliderA.value;
-    array1[1]=sliderB.value;
-    array1[2]=sliderC.value;
-    array1[3]=sliderD.value;
+    array1[0]=sliderA.value + p;
+    array1[1]=sliderB.value + p;
+    array1[2]=sliderC.value + p;
+    array1[3]=sliderD.value + p;
     
     pd.writeArray("array1",array1);
     
@@ -358,10 +364,10 @@ void ofApp::draw() {
         cout << array2[i] << " ";
     cout << endl;
     
-    array2[0]=sliderE.value;
-    array2[1]=sliderF.value;
-    array2[2]=sliderG.value;
-    array2[3]=sliderH.value;
+    array2[0]=sliderE.value+ p;
+    array2[1]=sliderF.value+ p;
+    array2[2]=sliderG.value+ p;
+    array2[3]=sliderH.value+ p;
     
     pd.writeArray("array2",array2);
     
@@ -433,9 +439,11 @@ void ofApp::draw() {
 void ofApp::exit() {
 
     // cleanup
+
     midiOut.closePort();
     ofSoundStreamStop();
 }
+//------------------------------------------------------------
 
 //--------------------------------------------------------------
 void ofApp::playTone(int pitch) {
@@ -444,48 +452,50 @@ void ofApp::playTone(int pitch) {
 
 //--------------------------------------------------------------
 void ofApp::keyPressed (int key) {
+    
+ 
 
     switch(key) {
         
         // musical keyboard
         case 'a':
-            playTone(60);
+            p=12;
             break;
         case 'w':
-            playTone(61);
+            p=13;
             break;
         case 's':
-            playTone(62);
+            p=14;
             break;
         case 'e':
-            playTone(63);
+            p=15;
             break;
         case 'd':
-            playTone(64);
+            p=16;
             break;
         case 'f':
-            playTone(65);
+            p=17;
             break;
         case 't':
-            playTone(66);
+            p=18;
             break;
         case 'g':
-            playTone(67);
+            p=19;
             break;
         case 'y':
-            playTone(68);
+            p=20;
             break;
         case 'h':
-            playTone(69);
+            p=21;
             break;
         case 'u':
-            playTone(70);
+            p=22;
             break;
         case 'j':
-            playTone(71);
+            p=23;
             break;
         case 'k':
-            playTone(72);
+            p=24;
             break;
 
         case ' ':

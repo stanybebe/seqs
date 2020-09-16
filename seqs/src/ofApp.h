@@ -23,7 +23,7 @@
 using namespace pd;
 
 // inherit pd receivers to receive message and midi events
-class ofApp : public ofBaseApp, public PdReceiver, public PdMidiReceiver {
+class ofApp : public ofBaseApp, public PdReceiver, public PdMidiReceiver{
 
 	public:
 
@@ -59,7 +59,7 @@ class ofApp : public ofBaseApp, public PdReceiver, public PdMidiReceiver {
 		void receivePitchBend(const int channel, const int value);
 		void receiveAftertouch(const int channel, const int value);
 		void receivePolyAftertouch(const int channel, const int pitch, const int value);
-		
+	
 		void receiveMidiByte(const int port, const int byte);
 		
 		ofxPd pd;
@@ -72,9 +72,10 @@ class ofApp : public ofBaseApp, public PdReceiver, public PdMidiReceiver {
         int c;
         
         ofxMidiOut midiOut;
+ 
         int channel;
         
-        int note,chan,vel;
+        int note,chan,vel, p;
         bool yep;
         
         
@@ -85,6 +86,8 @@ class ofApp : public ofBaseApp, public PdReceiver, public PdMidiReceiver {
         xy xyA;
       
         ofSpherePrimitive sphere, sphereB, sphereC, sphereD, sphereE, sphereF,sphereG, sphereH;
+        
+        
     
     
 };
